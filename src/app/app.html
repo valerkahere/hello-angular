@@ -20,10 +20,12 @@
             <button type="button" (click)="sendAlertMessage()">Click here</button>
 
             <ul>
-                @for (task of tasks(); track task; let i = $index) {
-                    <li>
+                @for (task of tasks(); track task; let isEven = $even; let i = $index;) {
+                    <!-- contextual vars in @for blocks -->
+                     <!-- if li is even (true) => give it a class of evenRow -->
+                    <li [class.evenRow]="isEven" [class.oddRow]="!isEven">
                         {{ i }} {{ task }}
-                        
+                        {{ isEven }}
                     </li>
                 } @empty {
                     <li>No tasks found!</li>
