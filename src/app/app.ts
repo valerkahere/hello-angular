@@ -9,6 +9,10 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('hello-world');
+  protected messageColour = signal('green');
+  protected messageID = signal('StudentMessage-01');
+  protected message = signal('Hello student from Lab02');
+
   constructor() {
     this.title.set('hello-world-new-title');
   }
