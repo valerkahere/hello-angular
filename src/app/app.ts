@@ -23,6 +23,6 @@ export class App { // app class defined how this component behaves
   protected alertMessage = signal("This is an alert");
 
   protected sendAlertMessage() {
-    alert(this.alertMessage);
+    alert(this.alertMessage());
   }
 }
