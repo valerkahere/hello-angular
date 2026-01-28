@@ -20,9 +20,10 @@
             <button type="button" (click)="sendAlertMessage()">Click here</button>
 
             <ul>
-                @for (task of tasks(); track task) {
+                @for (task of tasks(); track task; let i = $index) {
                     <li>
-                        {{ task }}
+                        {{ i }} {{ task }}
+                        
                     </li>
                 } @empty {
                     <li>No tasks found!</li>
