@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -26,9 +27,24 @@ export class App { // app class defined how this component behaves
     alert(this.alertMessage());
   }
 
+  protected myTasks = signal<string[]>([]);
+
   protected tasks = signal([
     'create test apps',
     'practice github',
     'study ts basics'
   ]);
+
+
+  protected addTask(task:string) {
+    this.myTasks.update(current => [...current, task]);
+  }
+
+  protected deleteTask(index:number) {
+    this.tasks.update(tasks =>
+        tasks.filter((_, i) => i !== index)
+    );
+  }
+
+
 }
