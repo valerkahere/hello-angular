@@ -24,13 +24,19 @@
                     <!-- contextual vars in @for blocks -->
                      <!-- if li is even (true) => give it a class of evenRow -->
                     <li [class.evenRow]="isEven" [class.oddRow]="!isEven">
+                        <button (click)="deleteTask($index)">Delete</button>
                         {{ i }} {{ task }}
                         {{ isEven }}
                     </li>
-                } @empty {
+                }
+
+                @if (tasks().length > 0) {
+                    <li>{{ tasks().length }} tasks remaining</li>
+                } @else {
                     <li>No tasks found!</li>
                 }
             </ul>
+            <!-- <button type="button" (click)="addTask(task)">Add task</button> -->
 
         </div>
     </div>
