@@ -21,8 +21,14 @@ export class App { // app class defined how this component behaves
   }
 
   protected alertMessage = signal("This is an alert");
-
+  
   protected sendAlertMessage() {
     alert(this.alertMessage());
   }
+
+  protected tasks = signal([
+    'create test apps',
+    'practice github',
+    'study ts basics'
+  ]);
 }
